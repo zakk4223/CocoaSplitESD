@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>com.cocoasplit.TransitionsPI</title>
+    <link rel="stylesheet" href="sdpi.css">
+</head>
+
+<body>
+    <div class="sdpi-wrapper">
+        <div type="select" class="sdpi-item">
+            <div class="sdpi-item-label">Transition</div>
+            <select id="transitionSelect" class="sdpi-item-value" onchange="selectedTransition = event.target.value; requestSave();">
+            </select>
+        </div>
+        <div type="select" class="sdpi-item">
+          <div class="sdpi-item-label">Action</div>
+         <select id="transitionAction" class="sdpi-item-value" onchange="transitionAction = event.target.value; requestSave();">
+           <option value="toggleUse">Toggle</option>
+           <option value="activate">Activate/Deactivate</option>
+         </select>
+        </div>
+     </div>
+     <script src="pi.js"></script>
+     <script>
+       var selectedAudio = null;
+       var transitionAction = null;
+       
+       makeSettings = function() {
+         return {"selectedTransition": selectedTransition, "transitionAction": transitionAction};
+       }
+
+       restoreSettings = function(settings) {
+         selectedTransition = settings["selectedTransition"];  
+         transitionAction = settings["transitionAction"];
+         var select = document.getElementById("transitionSelect");
+         for (index in select.options)
+         {
+           var opt = select.options[index];
+           if (opt.value === selectedTransition)
+           {
+             opt.selected = true;
+           }
+         }
+         select = document.getElementById("transitionAction");
+         for (index in select.options)
+         {
+           var opt = select.options[index];
+           if (opt.value === transitionAction)
+           {
+             opt.selected = true;
+           }
+         }
+       }
+
+       pluginMessageReceived = function(msg) {
+         var transitions = getPropFromString(msg, "payload.transitions");
+console.log(transitions);
+         if (transitions)
+         {
+           var select = document.getElementById("transitionSelect");
+           select.innerHTML = '';
+           for (index in transitions)
+           {
+    
+             var trn = transitions[index];
+             var opt = new Option(trn.name, index);
+             opt.value = trn.uuid; 
+             if (!selectedTransition && (index == 0))
+             {
+               opt.selected = true;
+               selectedTransition = trn.name;
+               requestSave();
+             } else if (selectedTransition === opt.value) {
+               opt.selected = true;
+             }
+             select.options[select.options.length] = opt; 
+           }
+         }
+       }
+     </script>
+
+</body>
+</html>

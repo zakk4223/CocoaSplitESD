@@ -1,0 +1,217 @@
+{
+ "Category": "CocoaSplit",
+  "Actions": [
+    {
+      "Name": "Output",
+      "PropertyInspectorPath": "OutputPI.html",
+      "States": [
+        {
+          "Image": "img/Output",
+          "FontSize": "12",
+          "FontStyle": "Bold",
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        }
+      ],
+      "Tooltip": "Output control",
+      "UUID": "com.cocoasplit.CocoaSplitESD.Output"
+    },
+    {
+      "Name": "Layout",
+      "PropertyInspectorPath": "LayoutPI.html",
+      "States": [
+        {
+          "Image": "img/Layout",
+          "FontSize": "12",
+          "FontStyle": "Bold",
+          "TitleAlignment": "middle",
+          "TitleColor": "#ffffff"
+        }
+      ],
+      "Tooltip": "Layout operations",
+      "UUID": "com.cocoasplit.CocoaSplitESD.Layout"
+    },
+    {
+      "Name": "Transition",
+      "PropertyInspectorPath": "TransitionsPI.html",
+      "States": [
+        {
+          "Image": "img/Transition",
+          "FontSize": "18",
+          "FontStyle": "Bold",
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        }
+      ],
+      "Tooltip": "Transition operations",
+      "UUID": "com.cocoasplit.CocoaSplitESD.Transitions"
+    },
+    {
+      "Name": "Global Mute",
+      "PropertyInspectorPath": "globalAudioMutePI.html",
+      "States": [
+        {
+          "Image": "img/Speaker_Icon_White",
+          "FontSize": "12", 
+          "FontStyle": "Bold", 
+          "TitleAlignment": "bottom", 
+          "TitleColor": "#ffffff"
+        },
+        {
+          "Image": "img/Mute_Icon_White",
+          "FontSize": "12",
+          "FontStyle": "Bold",
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        }
+      ], 
+      "Tooltip": "Mute stream audio",
+      "UUID": "com.cocoasplit.CocoaSplitESD.globalAudioMute"
+    },
+    {
+      "Name": "Toggle Staging",
+      "States": [
+        {
+          "Image": "img/StagingEnabled",
+          "Title": "Staging",
+          "FontSize": "8",
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        },
+        {
+          "Image": "img/StagingDisabled",
+          "Title": "Staging",
+          "FontSize": "12",
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        }
+      ],
+      "Tooltip": "Toggle use of the staging layout",
+      "UUID": "com.cocoasplit.CocoaSplitESD.toggleStaging"
+    },
+    {
+      "Name": "Go Live",
+      "States": [
+        {
+          "Image": "img/GoLive",
+          "Title": "Go Live",
+          "FontSize": "12",
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        }
+      ],
+      "Tooltip": "Take the staging layout to live layout",
+      "UUID": "com.cocoasplit.CocoaSplitESD.goLive"
+    },
+    { 
+      "Name": "Instant Record",
+      "States": [
+        { 
+          "Image": "img/InstantRecord",
+          "Title": "Instant Record",
+          "FontSize": "12", 
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        }
+      ],
+      "Tooltip": "Save instant recording buffer",
+      "UUID": "com.cocoasplit.CocoaSplitESD.InstantRecord"
+    },
+    {
+      "Name": "Swap Layouts",
+      "States": [
+        {
+          "Image": "img/Swap",
+          "Title": "Swap Layouts",
+          "FontSize": "12",
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        }
+      ],
+      "Tooltip": "Swap staging and live layouts",
+      "UUID": "com.cocoasplit.CocoaSplitESD.SwapLayouts"
+    },
+    {
+      "Name": "Start/Stop Stream",
+      "States": [
+        {
+          "Image": "img/csicon",
+          "Title": "Stream",
+          "FontSize": "16",
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        }, 
+        {
+          "Image": "img/csstreamingicon",
+          "Title": "Stop",
+          "FontSize": "16",
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        } 
+       
+      ],
+      "Tooltip": "Start or stop streaming",
+      "UUID": "com.cocoasplit.CocoaSplitESD.ToggleStream"
+    },
+    {
+      "Name": "Audio Input Mute",
+      "PropertyInspectorPath": "AudioMutePI.html",
+      "States": [
+        {
+          "Image": "img/Speaker_Icon_White",
+          "FontSize": "12",
+          "FontStyle": "Bold",
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        },
+        {
+          "Image": "img/Mute_Icon_White",
+          "FontSize": "12",
+          "FontStyle": "Bold",
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        }
+      ],
+      "Tooltip": "Mute input audio",
+      "UUID": "com.cocoasplit.CocoaSplitESD.audioMute"
+    },
+    {
+      "Name": "Use Transitions",
+      "States": [
+        {
+          "Image": "img/TransitionEnabled",
+          "Title": "Transitions",
+          "FontSize": "12",
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        },
+        {
+          "Image": "img/TransitionDisabled",
+          "Title": "Toggle transitions",
+          "FontSize": "12",
+          "TitleAlignment": "bottom",
+          "TitleColor": "#ffffff"
+        }
+      ],
+      "Tooltip": "Toggle the global use transition setting",
+      "UUID": "com.cocoasplit.CocoaSplitESD.ToggleUseTransition"
+    }
+  ], 
+  "Author": "Zakk", 
+  "CodePath": "CocoaSplitESD", 
+  "Description": "Control CocoaSplit", 
+  "Name": "CocoaSplit", 
+  "Icon": "MailIcon", 
+  "URL": "https://www.cocoasplit.com",
+  "Version": "1.0",
+  "ApplicationsToMonitor": {
+     "mac": ["zakk.lol.CocoaSplit"]
+   },
+  
+  "OS": [
+    {
+        "Platform": "mac", 
+        "MinimumVersion" : "10.11"
+    }
+  ]
+}

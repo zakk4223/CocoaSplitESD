@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>com.cocoasplit.OutputPI</title>
+    <link rel="stylesheet" href="sdpi.css">
+</head>
+
+<body>
+    <div class="sdpi-wrapper">
+        <div type="select" class="sdpi-item">
+            <div class="sdpi-item-label">Change Value</div>
+            <select id="outputSelect" class="sdpi-item-value" onchange="selectedOutput = event.target.value; requestSave();">
+            </select>
+        </div>
+     </div>
+     <script src="pi.js"></script>
+     <script>
+       var selectedOutput = null;
+       
+       makeSettings = function() {
+         return {"selectedOutput": selectedOutput};
+       }
+
+       restoreSettings = function(settings) {
+         selectedOutput = settings["selectedOutput"];  
+         var select = document.getElementById("outputSelect");
+         for (index in select.options)
+         {
+           var opt = select.options[index];
+           if (opt.value === selectedOutput)
+           {
+             opt.selected = true;
+           }
+         }
+       }
+
+       pluginMessageReceived = function(msg) {
+         var outputs = getPropFromString(msg, "payload.outputs");
+         if (outputs)
+         {
+           var select = document.getElementById("outputSelect");
+           select.innerHTML = '';
+           for (index in outputs)
+           {
+    
+             var output = outputs[index];
+             var opt = new Option(output.name, index);
+             opt.value = output.uuid; 
+             if (!selectedOutput && (index == 0))
+             {
+               opt.selected = true;
+               selectedOutput = output.uuid;
+               requestSave();
+             } else if (selectedOutput === opt.value) {
+               opt.selected = true;
+             }
+             select.options[select.options.length] = opt; 
+           }
+         }
+       }
+     </script>
+
+</body>
+</html>

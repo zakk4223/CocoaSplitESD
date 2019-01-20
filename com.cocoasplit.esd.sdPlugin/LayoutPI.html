@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>com.cocoasplit.LayoutPI</title>
+    <link rel="stylesheet" href="sdpi.css">
+</head>
+
+<body>
+    <div class="sdpi-wrapper">
+        <div type="select" class="sdpi-item">
+            <div class="sdpi-item-label">Layout</div>
+            <select id="layoutSelect" class="sdpi-item-value" onchange="selectedLayout = event.target.value; requestSave();">
+            </select>
+        </div>
+        <div type="select" class="sdpi-item">
+          <div class="sdpi-item-label">Action</div>
+         <select id="layoutAction" class="sdpi-item-value" onchange="layoutAction = event.target.value; requestSave();">
+           <option value="replace">Replace</option>
+           <option value="merge">Merge/Remove</option>
+         </select>
+        </div>
+        <div type="select" class="sdpi-item">
+          <div class="sdpi-item-label">Order</div>
+          <select id="layoutOrder" class="sdpi-item-value" onchange="layoutOrder = event.target.value; requestSave();">
+            <option value="above">Above</option>
+            <option value="below">Below</option>
+          </select>
+        </div>
+     </div>
+     <script src="pi.js"></script>
+     <script>
+       var selectedLayout = null;
+       var layoutAction = null;
+       var layoutOrder = null;
+       
+       makeSettings = function() {
+         return {"selectedLayout": selectedLayout, "layoutAction": layoutAction, "layoutOrder": layoutOrder};
+       }
+
+       restoreSettings = function(settings) {
+         selectedLayout = settings["selectedLayout"];  
+         layoutAction = settings["layoutAction"];
+         layoutOrder = settings["layoutOrder"];
+         var select = document.getElementById("layoutSelect");
+         for (index in select.options)
+         {
+           
+           var opt = select.options[index];
+           if (opt.value === selectedLayout)
+           {
+             opt.selected = true;
+           }
+         }
+         select = document.getElementById("layoutAction");
+         for (index in select.options)
+         {
+           var opt = select.options[index];
+           if (opt.value === layoutAction)
+           {
+             opt.selected = true;
+           }
+         }
+         select = document.getElementById("layoutOrder");
+         for (index in select.options)
+         {
+           var opt = select.options[index];
+           if (opt.value === layoutOrder)
+           {
+             opt.selected = true;
+           }
+         }
+
+
+       }
+
+       pluginMessageReceived = function(msg) {
+         var layouts = getPropFromString(msg, "payload.layouts");
+         if (layouts)
+         {
+           var select = document.getElementById("layoutSelect");
+           select.innerHTML = '';
+           for (index in layouts)
+           {
+    
+             var layout = layouts[index];
+             var opt = new Option(layout.name, index);
+             opt.value = layout.uuid; 
+             
+             if (!selectedLayout && (index == 0))
+             {
+               opt.selected = true;
+               selectedLayout = layout.uuid;
+               requestSave();
+             } else if (selectedLayout === opt.value) {
+               opt.selected = true;
+             }
+             select.options[select.options.length] = opt; 
+           }
+         }
+         if (!layoutAction)
+         {
+           var aSelect = document.getElementById("layoutAction");
+           aSelect.options[0].selected = true;
+           layoutAction = aSelect.options[0].value;
+         }
+         if (!layoutOrder)
+         {
+           var aSelect = document.getElementById("layoutOrder");
+           aSelect.options[0].selected = true;
+           layoutOrder = aSelect.options[0].value;
+         }
+
+
+
+       }
+     </script>
+
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>com.cocoasplit.AudioMutePI</title>
+    <link rel="stylesheet" href="sdpi.css">
+</head>
+
+<body>
+    <div class="sdpi-wrapper">
+        <div type="select" class="sdpi-item">
+            <div class="sdpi-item-label">Change Value</div>
+            <select id="audioSelect" class="sdpi-item-value" onchange="selectedAudio = event.target.value; requestSave();">
+            </select>
+        </div>
+     </div>
+     <script src="pi.js"></script>
+     <script>
+       var selectedAudio = null;
+       
+       makeSettings = function() {
+         return {"selectedAudio": selectedAudio};
+       }
+
+       restoreSettings = function(settings) {
+         selectedAudio = settings["selectedAudio"];  
+         var select = document.getElementById("audioSelect");
+         for (index in select.options)
+         {
+           var opt = select.options[index];
+           if (opt.value === selectedAudio)
+           {
+             opt.selected = true;
+           }
+         }
+       }
+
+       pluginMessageReceived = function(msg) {
+         var audioInputs = getPropFromString(msg, "payload.audioInputs");
+         if (audioInputs)
+         {
+           var select = document.getElementById("audioSelect");
+           select.innerHTML = '';
+           for (index in audioInputs)
+           {
+             var ainp = audioInputs[index];
+             var opt = new Option(ainp.name, index);
+             opt.value = ainp.uuid; 
+             if (!selectedAudio && (index == 0))
+             {
+               opt.selected = true;
+               selectedAudio = ainp.uuid;
+               requestSave();
+             } else if (selectedAudio === opt.value) {
+               opt.selected = true;
+             }
+             select.options[select.options.length] = opt; 
+           }
+         }
+       }
+     </script>
+
+</body>
+</html>

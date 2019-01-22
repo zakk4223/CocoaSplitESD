@@ -2,6 +2,7 @@
  "Category": "CocoaSplit",
   "Actions": [
     {
+      "Icon": "icn/OutputIcon",
       "Name": "Output",
       "PropertyInspectorPath": "OutputPI.html",
       "States": [
@@ -17,6 +18,7 @@
       "UUID": "com.cocoasplit.CocoaSplitESD.Output"
     },
     {
+      "Icon": "icn/LayoutIcon",
       "Name": "Layout",
       "PropertyInspectorPath": "LayoutPI.html",
       "States": [
@@ -32,6 +34,7 @@
       "UUID": "com.cocoasplit.CocoaSplitESD.Layout"
     },
     {
+      "Icon": "icn/TransitionIcon",
       "Name": "Transition",
       "PropertyInspectorPath": "TransitionsPI.html",
       "States": [
@@ -47,6 +50,7 @@
       "UUID": "com.cocoasplit.CocoaSplitESD.Transitions"
     },
     {
+      "Icon": "icn/AudioIcon",
       "Name": "Global Mute",
       "PropertyInspectorPath": "globalAudioMutePI.html",
       "States": [
@@ -69,6 +73,7 @@
       "UUID": "com.cocoasplit.CocoaSplitESD.globalAudioMute"
     },
     {
+      "Icon": "icn/LayoutIcon",
       "Name": "Toggle Staging",
       "States": [
         {
@@ -90,6 +95,7 @@
       "UUID": "com.cocoasplit.CocoaSplitESD.toggleStaging"
     },
     {
+      "Icon": "icn/GoLiveIcon",
       "Name": "Go Live",
       "States": [
         {
@@ -104,6 +110,7 @@
       "UUID": "com.cocoasplit.CocoaSplitESD.goLive"
     },
     { 
+      "Icon": "icn/RecordIcon",
       "Name": "Instant Record",
       "States": [
         { 
@@ -118,6 +125,7 @@
       "UUID": "com.cocoasplit.CocoaSplitESD.InstantRecord"
     },
     {
+      "Icon": "icn/SwapIcon",
       "Name": "Swap Layouts",
       "States": [
         {
@@ -132,6 +140,7 @@
       "UUID": "com.cocoasplit.CocoaSplitESD.SwapLayouts"
     },
     {
+      "Icon": "icn/StreamIcon",
       "Name": "Start/Stop Stream",
       "States": [
         {
@@ -154,6 +163,7 @@
       "UUID": "com.cocoasplit.CocoaSplitESD.ToggleStream"
     },
     {
+      "Icon": "icn/AudioIcon",
       "Name": "Audio Input Mute",
       "PropertyInspectorPath": "AudioMutePI.html",
       "States": [
@@ -176,6 +186,7 @@
       "UUID": "com.cocoasplit.CocoaSplitESD.audioMute"
     },
     {
+      "Icon": "icn/TransitionIcon",
       "Name": "Use Transitions",
       "States": [
         {
